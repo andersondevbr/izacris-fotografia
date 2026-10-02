@@ -185,16 +185,15 @@ section[id]{scroll-margin-top:var(--header-h)}
 
 /* Sobre */
 .sobre .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(36px,6vw,96px);align-items:center}
-.sobre-foto{margin:0;position:relative;justify-self:center;width:100%;max-width:340px}
-.sobre-foto .moldura{position:relative;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:#E6E7E8;box-shadow:0 0 0 10px var(--areia),0 0 0 11px var(--linha)}
-.sobre-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
-.sobre-foto figcaption{text-align:center;margin-top:26px}
-.sobre-foto figcaption strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.6rem;line-height:1.1}
-.sobre-foto figcaption span{font-size:.92rem;color:var(--tinta-suave)}
+.sobre-id{align-self:start;border-top:1px solid var(--tinta);padding-top:22px}
+.sobre-nome{font-family:var(--serif);font-size:clamp(2.6rem,1.6rem + 4vw,4.6rem);line-height:1;margin:0 0 16px}
+.sobre-insta{display:inline-flex;align-items:center;gap:8px;color:var(--tinta);text-decoration:none;font-weight:600;padding:10px 0;border-bottom:1px solid var(--linha)}
+.sobre-insta:hover{border-color:var(--tinta)}
+.sobre-insta svg{width:20px;height:20px}
 .sobre-texto p{color:var(--tinta-suave);max-width:58ch}
 .sobre-texto h2{margin-bottom:24px}
 .assinatura{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--tinta);margin-top:18px}
-@media (max-width:860px){.sobre .wrap{grid-template-columns:1fr}.sobre-foto{max-width:280px}}
+@media (max-width:860px){.sobre .wrap{grid-template-columns:1fr}}
 
 /* Presets */
 .presets{background:var(--areia-2)}
@@ -424,10 +423,10 @@ section[id]{scroll-margin-top:var(--header-h)}
 
 <section class="secao sobre" id="sobre" aria-labelledby="t-sobre" style="padding-top:0">
   <div class="wrap">
-    <figure class="sobre-foto revela">
-      <div class="moldura"><img src="img/iza-perfil.webp" width="480" height="480" alt="Iza Cris, fotógrafa, de blusa preta em fundo claro" loading="lazy"></div>
-      <figcaption><strong>Iza Cris</strong><span>Fotógrafa em Camocim-CE</span></figcaption>
-    </figure>
+    <div class="sobre-id sobe">
+      <p class="sobre-nome">Iza Cris</p>
+      <a class="sobre-insta" href="https://www.instagram.com/izacrisfotografia/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>@izacrisfotografia</a>
+    </div>
     <div class="sobre-texto sobe">
       <h2 id="t-sobre">Oi, eu sou a Iza.</h2>
       <p>Sou fotógrafa há 5 anos e acredito no poder da fotografia para transformar a autoestima e eternizar momentos únicos.</p>
