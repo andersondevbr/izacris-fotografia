@@ -111,7 +111,7 @@ section[id]{scroll-margin-top:var(--header-h)}
 }
 @media (max-width:520px){.hero-acoes .btn{flex:1 1 100%}}
 
-/* Visor (câmera do celular) */
+/* Visor */
 .visor{position:relative;margin:0}
 .visor-tela{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--areia-2);box-shadow:0 40px 70px -40px rgba(43,30,34,.55)}
 .visor-tela img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
@@ -124,9 +124,6 @@ section[id]{scroll-margin-top:var(--header-h)}
 .canto.d{bottom:16px;right:16px;border-left:0;border-top:0}
 .foco{position:absolute;left:50%;top:34%;width:74px;height:74px;margin:-37px 0 0 -37px;border:1.5px solid #FFD36B;opacity:0}
 .foco::after{content:"";position:absolute;right:-14px;top:50%;width:2px;height:22px;margin-top:-11px;background:#FFD36B;box-shadow:0 -14px 0 -0px transparent}
-.zoom{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:6px}
-.zoom span{min-width:30px;height:30px;padding:0 6px;border-radius:15px;background:rgba(0,0,0,.35);color:#fff;font:600 .72rem/30px var(--sans);text-align:center}
-.zoom span.on{color:#FFD36B;background:rgba(0,0,0,.5)}
 .visor-legenda{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:.88rem;color:var(--tinta-suave)}
 .visor-pontos{display:flex;gap:6px;align-items:center}
 .visor-pontos button{width:24px;height:24px;border:0;background:transparent;padding:0;display:grid;place-items:center}
@@ -176,25 +173,6 @@ section[id]{scroll-margin-top:var(--header-h)}
 @media (max-width:620px){.grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.grade .tag{font-size:.72rem;left:6px;bottom:6px}}
 .portfolio-nota{margin-top:22px;font-size:.93rem;color:var(--tinta-suave)}
 .portfolio-nota a{color:var(--tinta)}
-
-/* Celular x câmera */
-.celular .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(36px,6vw,96px);align-items:center}
-.celular-texto p{color:#C9B5AE;max-width:52ch}
-.celular-texto h2{margin-bottom:24px}
-.citacao{margin:32px 0 0;padding:24px 26px;border-left:2px solid var(--dourado);background:rgba(255,255,255,.04);font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.4;color:#FBF5F2}
-.citacao footer{font-family:var(--sans);font-style:normal;font-size:.9rem;color:#B9A39C;margin-top:10px}
-.antes{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#3a2a30;max-width:440px;width:100%;justify-self:center}
-.antes img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.antes .cru{filter:saturate(.35) contrast(.85) brightness(1.08)}
-.antes .editada{clip-path:inset(0 0 0 var(--corte,50%))}
-.antes input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;touch-action:pan-y}
-.antes .divisor{position:absolute;top:0;bottom:0;left:var(--corte,50%);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
-.antes .divisor::after{content:"";position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l-5 6 5 6M15 6l5 6-5 6' fill='none' stroke='%232B1E22' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:0 4px 14px rgba(0,0,0,.3)}
-.antes .rot{position:absolute;top:14px;font-size:.78rem;font-weight:600;color:#fff;background:rgba(0,0,0,.4);padding:3px 10px;border-radius:999px;pointer-events:none}
-.antes .rot.e{left:14px}.antes .rot.d{right:14px}
-.antes-legenda{font-size:.88rem;color:#B9A39C;margin-top:12px;text-align:center}
-.antes:has(input:focus-visible){outline:2px solid var(--dourado);outline-offset:4px}
-@media (max-width:860px){.celular .wrap{grid-template-columns:1fr}.antes-bloco{order:-1}}
 
 /* Como funciona */
 .passos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px);counter-reset:p}
@@ -378,7 +356,6 @@ section[id]{scroll-margin-top:var(--header-h)}
         <div class="visor-ui" aria-hidden="true">
           <i class="canto a"></i><i class="canto b"></i><i class="canto c"></i><i class="canto d"></i>
           <i class="foco"></i>
-          <div class="zoom"><span>0,5</span><span class="on">1×</span><span>2</span></div>
         </div>
       </div>
       <figcaption class="visor-legenda"><span id="visor-txt">Feminino, fim de tarde</span><span class="visor-pontos" id="visor-pontos"></span></figcaption>
@@ -389,7 +366,7 @@ section[id]{scroll-margin-top:var(--header-h)}
 <section class="secao guia" id="guia" aria-labelledby="t-guia">
   <div class="wrap">
     <div class="guia-fotos">
-      <figure class="g1 revela"><img src="img/f-pedra.webp" width="800" height="998" alt="Cliente deitada nas pedras escuras da praia, olhando para a câmera" loading="lazy"></figure>
+      <figure class="g1 revela"><img src="img/f-pedra.webp" width="800" height="998" alt="Cliente deitada nas pedras escuras da praia, olhando para a frente" loading="lazy"></figure>
       <figure class="g2 revela" style="--d:.2s"><img src="img/f-cadeira.webp" width="800" height="998" alt="Ensaio feminino na beira do mar com cadeira vermelha" loading="lazy" style="object-position:50% 70%"></figure>
     </div>
     <div class="guia-texto sobe">
@@ -398,7 +375,7 @@ section[id]{scroll-margin-top:var(--header-h)}
       <ul class="guia-lista">
         <li>Antes do ensaio, conversamos sobre roupa, local e o que você quer sentir nas fotos.</li>
         <li>No dia, eu oriento expressão, mãos e postura, uma de cada vez.</li>
-        <li>No final, as fotos passam pela minha edição, com o tom quente que é a cara do meu trabalho.</li>
+        <li>Depois, você recebe as suas fotos editadas, prontas pra guardar e compartilhar.</li>
       </ul>
       <blockquote>
         “Eu falei pra ela: aqui você não vai posar. Você vai respirar, rir, sentir o vento.”
@@ -428,41 +405,17 @@ section[id]{scroll-margin-top:var(--header-h)}
   </div>
 </section>
 
-<section class="secao escuro celular" id="celular" aria-labelledby="t-celular">
-  <div class="wrap">
-    <div class="celular-texto sobe">
-      <h2 id="t-celular">Qualidade de estúdio, feita com o celular.</h2>
-      <p>Muita gente acredita que uma foto incrível depende de uma câmera cara. Eu acredito que ela começa muito antes do clique.</p>
-      <p>São anos estudando luz, composição, direção de poses e edição. O celular é a ferramenta. O olhar, a experiência e o cuidado com cada detalhe é que fazem a diferença.</p>
-      <blockquote class="citacao">
-        “Não é sobre ser melhor, é sobre entregar qualidade de estúdio. E isso ela cumpre.”
-        <footer>Comentário de um seguidor, fixado no Instagram</footer>
-      </blockquote>
-    </div>
-    <div class="antes-bloco sobe" style="--d:.15s">
-      <div class="antes" id="antes" style="--corte:50%">
-        <img class="cru" src="img/f-trancas.webp" width="800" height="998" alt="" loading="lazy" style="object-position:50% 25%">
-        <img class="editada" src="img/f-trancas.webp" width="800" height="998" alt="Ensaio feminino na praia com tranças, com a edição final" loading="lazy" style="object-position:50% 25%">
-        <span class="divisor" aria-hidden="true"></span>
-        <span class="rot e" aria-hidden="true">Sem cor</span><span class="rot d" aria-hidden="true">Editada</span>
-        <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar a foto sem cor com a foto editada">
-      </div>
-      <p class="antes-legenda">Arraste para ver a diferença que a cor faz.</p>
-    </div>
-  </div>
-</section>
-
 <section class="secao" id="como-funciona" aria-labelledby="t-passos">
   <div class="wrap">
     <div class="secao-cab sobe">
       <h2 id="t-passos">Como funciona</h2>
-      <p>Do primeiro “oi” até as fotos prontas no seu celular.</p>
+      <p>Do primeiro “oi” até as fotos prontas nas suas mãos.</p>
     </div>
     <ol class="passos">
       <li class="passo sobe"><span class="passo-n">1</span><h3>A gente conversa</h3><p>Pelo WhatsApp você me conta o tipo de ensaio, a data que prefere e como quer se sentir nas fotos.</p></li>
-      <li class="passo sobe" style="--d:.12s"><span class="passo-n">2</span><h3>Planejamos juntas</h3><p>Escolhemos o local, o horário de luz e as roupas. Te mando referências pra você chegar segura.</p></li>
+      <li class="passo sobe" style="--d:.12s"><span class="passo-n">2</span><h3>Planejamos juntas</h3><p>Escolhemos juntas o local, o horário e as roupas, pra você chegar tranquila no dia.</p></li>
       <li class="passo sobe" style="--d:.24s"><span class="passo-n">3</span><h3>Dia do ensaio</h3><p>Sem pressa e sem pose forçada. Eu te guio em cada foto, do jeito leve que você merece.</p></li>
-      <li class="passo sobe" style="--d:.36s"><span class="passo-n">4</span><h3>Fotos editadas</h3><p>As escolhidas passam pela minha edição e chegam prontas pra você guardar e postar.</p></li>
+      <li class="passo sobe" style="--d:.36s"><span class="passo-n">4</span><h3>Fotos editadas</h3><p>Você recebe as fotos tratadas, prontas pra guardar e postar.</p></li>
     </ol>
   </div>
 </section>
@@ -475,8 +428,8 @@ section[id]{scroll-margin-top:var(--header-h)}
     </figure>
     <div class="sobre-texto sobe">
       <h2 id="t-sobre">Oi, eu sou a Iza.</h2>
-      <p>Sou fotógrafa mobile há 5 anos e acredito no poder da fotografia para transformar a autoestima e eternizar momentos únicos.</p>
-      <p>Trabalho em Camocim com o que tenho na mão: iPhone, rebatedor e muita coragem pra subir em pedra no meio do mar, descalça, atrás da luz certa. Fotografo mulheres, gestantes, casais e famílias, e o que mais me emociona é a mensagem que chega depois, de quem chegou tímida e saiu se achando linda.</p>
+      <p>Sou fotógrafa há 5 anos e acredito no poder da fotografia para transformar a autoestima e eternizar momentos únicos.</p>
+      <p>Fotografo em Camocim mulheres, gestantes, casais e famílias. O que mais me emociona é a mensagem que chega depois, de quem chegou tímida e saiu se achando linda.</p>
       <p>Obrigada a cada cliente que confia no meu trabalho e me deixa contar um pedacinho da sua história.</p>
       <p class="assinatura">Iza Cris</p>
     </div>
@@ -516,7 +469,6 @@ section[id]{scroll-margin-top:var(--header-h)}
     </div>
     <div class="perguntas">
       <details><summary>Eu não sei posar. Vai dar certo?</summary><div class="resp"><p>Vai. A maioria das minhas clientes chega dizendo exatamente isso. Eu te oriento em tudo: expressão, mãos, postura e onde olhar. Você só precisa estar aberta a se divertir.</p></div></details>
-      <details><summary>As fotos são feitas com celular mesmo?</summary><div class="resp"><p>Sim. Fotografo com iPhone e rebatedor, e todo o resultado vem do estudo de luz, composição, direção e edição. As fotos que você vê aqui foram feitas assim.</p></div></details>
       <details><summary>Onde os ensaios acontecem?</summary><div class="resp"><p>Em Camocim e arredores: praia, pedras, campo, jardim e fundo de estúdio. Escolhemos juntas o lugar que combina com o seu ensaio.</p></div></details>
       <details><summary>Que tipos de ensaio você faz?</summary><div class="resp"><p>Feminino, gestante, casal e pré-wedding, família, mãe e filho, aniversário, 15 e 18 anos.</p></div></details>
       <details><summary>Quanto custa e como reservo a data?</summary><div class="resp"><p>Os valores e as datas livres eu passo pelo WhatsApp, porque mudam conforme o tipo de ensaio. As vagas de cada mês são limitadas, então vale chamar com antecedência.</p></div></details>
@@ -654,9 +606,6 @@ section[id]{scroll-margin-top:var(--header-h)}
   function reiniciar(){ clearInterval(timer); if (anima) timer = setInterval(function(){ if (!document.hidden) ir((atual+1) % slides.length); }, 4500); }
   window.addEventListener('load', function(){ carrega(slides[1]); reiniciar(); });
 
-  /* Comparador antes/depois */
-  var antes = document.getElementById('antes'), range = antes.querySelector('input');
-  range.addEventListener('input', function(){ antes.style.setProperty('--corte', range.value + '%'); });
 
   /* Revelar ao rolar */
   var io = anima ? new IntersectionObserver(function(es){
